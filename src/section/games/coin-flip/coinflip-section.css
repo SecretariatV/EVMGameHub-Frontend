@@ -1,0 +1,101 @@
+.coin {
+  width: 100px;
+  height: 100px;
+  perspective: 1000px;
+}
+
+@keyframes flipCoin {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.coin {
+  perspective: 1000px;
+}
+
+.coin-flip-side {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flipping {
+  background-repeat: no-repeat;
+  background-image: url(/assets/games/coin-flip/coin-head.svg);
+  background-position: center;
+  background-size: cover;
+  animation-timing-function: ease-in-out;
+}
+
+.coin-front {
+  background-repeat: no-repeat;
+  background-image: url(/assets/games/coin-flip/coin-head.svg);
+  background-position: center;
+  background-size: cover;
+  animation: flipfront 0.5s forwards;
+}
+
+.coin-back {
+  background-repeat: no-repeat;
+  background-image: url(/assets/games/coin-flip/coin-tail.svg);
+  background-position: center;
+  background-size: cover;
+  animation: flipback 0.5s forwards;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+    background-image: url(/assets/games/coin-flip/coin-head.svg);
+  }
+
+  50% {
+    transform: rotateY(180deg);
+    background-image: url(/assets/games/coin-flip/coin-tail-mirror.svg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes flipfront {
+  0% {
+    transform: rotateY(180deg);
+    background-image: url(/assets/games/coin-flip/coin-tail.svg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+    background-image: url(/assets/games/coin-flip/coin-head.svg);
+  }
+}
+
+@keyframes flipback {
+  0% {
+    transform: rotateY(180deg);
+    background-image: url(/assets/games/coin-flip/coin-head.svg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+    background-image: url(/assets/games/coin-flip/coin-tail.svg);
+  }
+}
+
+.coin-flip-side {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

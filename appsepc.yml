@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+ - source: .
+   destination: /dvv/pixasino-frontend
+hooks:
+  AfterInstall:
+   - location: npm run ci:prepare
+     timeout: 30000
+     runas: root
